@@ -1,19 +1,25 @@
 #include <stdio.h>
 #include <math.h>
 
-int main()
-{
-    double x = 1.7;
-    double y = 1.08;
-    double z = 0.5;
+double A(const double x, const double y, const double z);
 
-    double a = sin(x) / sqrt(y * y + pow(sin(x), 2))
-             - x * x * y * z;
+double B(const double x, const double y, const double z);
 
-    double b = pow(M_E, -z*x) * sqrt(x + 1) + pow(M_E, -y*x);
-    printf("a = %f\n", a);
-    printf("b = %f\n", b);
+int main() {
+    const double x = 1.7;
+    const double y = 1.08;
+    const double z = 0.5;
 
+    printf("a = %.3f\nb = %.3f\n", A(x, y, z), B(x, y, z));
     return 0;
+}
 
+double A(const double x, const double y, const double z) {
+    return (sin(x) / (sqrt(y * y + pow(sin(x), 2)))) - (x * x * y * z);
+}
+
+double B(const double x, const double y, const double z) {
+    return exp(-z * x) * sqrt(x + 1)
+           + exp(-y * x);
+}
 
