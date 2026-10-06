@@ -1,31 +1,33 @@
 #include <stdio.h>
 #include <math.h>
 
-
 /**
- * @brief Считывает с клавиатуры значение с плавающей точкой
- * @return Считанное значение
+ * @brief Считывает с клавиатуры значение с плавающей точкой.
+ * @return Считанное значение.
  */
 double sendValue();
 
 /**
- * @brief Считывает площадь круга по формуле S = C**2/4pi
- * @return Считанное значение
+ * @brief Вычисляет площадь круга по формуле S = C^2 / (4 * pi).
+ * @param l_circle Длина окружности (константа).
+ * @return Вычисленная площадь круга.
  */
-double Square_Circle(double l_circle);
+double Square_Circle(const double l_circle);
 
 /**
- * @brief точка входа в программу
- * @return 0, если программа выполнена корректно, иначе не 0
+ * @brief Точка входа в программу.
+ * @return 0, если программа выполнена корректно, иначе не 0.
  */
 int main() {
     double length_circle = sendValue();
     double S_circle = Square_Circle(length_circle);
+
     printf("Площадь круга: %.4f\n", S_circle);
+
     return 0;
 }
 
-double Square_Circle(double l_circle) {
+double Square_Circle(const double l_circle) {
     return (l_circle * l_circle) / (4 * M_PI);
 }
 
