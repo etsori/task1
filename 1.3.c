@@ -39,6 +39,7 @@ double sendValue() {
     printf("Введите высоту столба: ");
     if (scanf("%lf", &height) != 1) {
         printf("Ошибка ввода! Будет использовано значение: 0.0\n");
+        exit(1)
     }
 
     return height;
