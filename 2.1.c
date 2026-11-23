@@ -16,10 +16,47 @@ enum TriangleOperation {
     BOTH
 };
 
+/**
+ * @brief Считывает одно число с клавиатуры
+ * @return Введенное число типа double (при ошибке завершает программу)
+ */
 double input_coordinate();
+
+/**
+ * @brief Вычисляет расстояние между двумя точками (длину стороны) по их координатам
+ * @param x1 Координата X первой точки
+ * @param y1 Координата Y первой точки
+ * @param x2 Координата X второй точки
+ * @param y2 Координата Y второй точки
+ * @return Расстояние между точками в виде double
+ */
 double get_side_length(double x1, double y1, double x2, double y2);
+
+/**
+ * @brief Вычисляет периметр треугольника по длинам трех сторон
+ * @param a Длина первой стороны
+ * @param b Длина второй стороны
+ * @param c Длина третьей стороны
+ * @return Вычисленный периметр
+ */
 double perimeter(const double a, const double b, const double c);
+
+/**
+ * @brief Вычисляет площадь треугольника по формуле Герона
+ * @param a Длина первой стороны
+ * @param b Длина второй стороны
+ * @param c Длина третьей стороны
+ * @return Вычисленная площадь
+ */
 double area(const double a, const double b, const double c);
+
+/**
+ * @brief Проверяет существование треугольника по трем сторонам
+ * @param a Длина первой стороны
+ * @param b Длина второй стороны
+ * @param c Длина третьей стороны
+ * @return 1, если треугольник существует, иначе 0
+ */
 int is_triangle_valid(const double a, const double b, const double c);
 
 /**
@@ -67,7 +104,7 @@ int main() {
         return 1;
     }
 
-    switch ((enum TriangleOperation)choice) {
+    switch ((enum TriangleOperation) choice) {
         case PERIMETER:
             printf("\nПериметр треугольника: P = %.4f\n", perimeter(a, b, c));
             break;
@@ -85,25 +122,11 @@ int main() {
     return 0;
 }
 
-/**
- * @brief Вычисляет расстояние между двумя точками (длину стороны) по их координатам
- * @param x1 Координата X первой точки
- * @param y1 Координата Y первой точки
- * @param x2 Координата X второй точки
- * @param y2 Координата Y второй точки
- * @return Расстояние между точками в виде double
- */
+
 double get_side_length(double x1, double y1, double x2, double y2) {
     return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
 
-/**
- * @brief Проверяет существование треугольника по трем сторонам
- * @param a Длина первой стороны
- * @param b Длина второй стороны
- * @param c Длина третьей стороны
- * @return 1, если треугольник существует, иначе 0
- */
 int is_triangle_valid(const double a, const double b, const double c) {
     if ((a + b <= c) || (a + c <= b) || (b + c <= a)) {
         return 0;
@@ -111,33 +134,15 @@ int is_triangle_valid(const double a, const double b, const double c) {
     return 1;
 }
 
-/**
- * @brief Вычисляет периметр треугольника по длинам трех сторон
- * @param a Длина первой стороны
- * @param b Длина второй стороны
- * @param c Длина третьей стороны
- * @return Вычисленный периметр
- */
 double perimeter(const double a, const double b, const double c) {
     return a + b + c;
 }
 
-/**
- * @brief Вычисляет площадь треугольника по формуле Герона
- * @param a Длина первой стороны
- * @param b Длина второй стороны
- * @param c Длина третьей стороны
- * @return Вычисленная площадь
- */
 double area(const double a, const double b, const double c) {
     double p = (a + b + c) / 2;
     return sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
-/**
- * @brief Считывает одно число с клавиатуры
- * @return Введенное число типа double (при ошибке завершает программу)
- */
 double input_coordinate() {
     double value = 0.0;
     if (scanf("%lf", &value) != 1) {
