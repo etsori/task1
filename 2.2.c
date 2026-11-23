@@ -32,7 +32,7 @@ int main() {
     double x = sendValue();
     const double a = 1.6;
 
-    if (x == a) {
+    if (fabs(x - a) < 1e-9) {
         printf("x равен a. Такое невозможно\n");
         return 0;
     }
