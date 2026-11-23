@@ -16,7 +16,7 @@
  * @return Код завершения программы
  */
 int main() {
-    double a, b, c;
+    double a = 0.0, b = 0.0, c = 0.0;
 
     printf("Введите три действительных числа (a, b, c): ");
     if (scanf("%lf %lf %lf", &a, &b, &c) != 3) {
